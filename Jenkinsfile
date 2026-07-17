@@ -27,7 +27,13 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Ejecutando pruebas unitarias...'
-                sh './mvnw test'
+                withCredentials([
+                    string(credentialsId: 'db-host', variable: 'DB_HOST'),
+                    string(credentialsId: 'db-user', variable: 'DB_USER'),
+                    string(credentialsId: 'db-password', variable: 'DB_PASSWORD')
+                ]) {
+                    sh './mvnw test'
+                }
             }
         }
 
