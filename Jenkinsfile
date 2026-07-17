@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Clonando el repositorio desde GitHub...'
-                git branch: 'main', url: 'https://github.com/<TU_USUARIO>/UsuariosREST.git'
+                git branch: 'main', url: 'https://github.com/camiluck/UsuariosREST.git'
             }
         }
 
